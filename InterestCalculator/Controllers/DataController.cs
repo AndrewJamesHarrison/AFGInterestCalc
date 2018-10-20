@@ -12,7 +12,8 @@ namespace InterestCalculator.Controllers
         [HttpPost("[action]")]
         public double Calculate(double LoanValue, double InterestRate, double Term)
         {
-            var repayment = LoanValue / ((1 - (1 / Math.Pow((1 + (InterestRate / 12)), (Term * 12)))) / InterestRate / 12);
+            double interest = InterestRate/100;
+            double repayment = LoanValue / ((1 - (1 / Math.Pow((1 + (interest / 12)), (Term * 12)))) / interest / 12);
             return repayment;
         }
     }
